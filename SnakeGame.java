@@ -1,5 +1,3 @@
-
-package com.mycompany.practise;
 import java.awt.*;
 import javax.swing.*;
 public class SnakeGame extends JPanel{
