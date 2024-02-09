@@ -41,5 +41,13 @@ public class SnakeGame extends JPanel{
     public void draw(Graphics gp){
         gp.setColor(Color.red);
         gp.fillRect(own.a, own.b, scordsize, scordsize);
+
+        gp.setColor(Color.red);
+        gp.fill3DRect(food.x*titleSize, food.y*titleSize, titleSize, titleSize,true);
+        
+        gp.setColor(Color.green);
+        gp.fill3DRect(snakeHead.x*titleSize, snakeHead.y*titleSize, titleSize, titleSize,true);
     }
+
+    
 }
