@@ -17,7 +17,7 @@ public class SnakeGame extends JPanel{
     int hight;
     int width;
     int scordsize = 25;
-    
+    Scord food;
     Scord own;
     
     SnakeGame(int hight,int width){
@@ -29,6 +29,8 @@ public class SnakeGame extends JPanel{
         setBackground(Color.ORANGE);
         
         own = new Scord(5,5);
+
+	food = new Scord(10,10);
     }
     
     public void paintComponent(Graphics gp){
