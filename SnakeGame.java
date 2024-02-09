@@ -26,7 +26,7 @@ public class SnakeGame extends JPanel{
         setPreferredSize(new Dimension(this.width,this.hight));
         setBackground(Color.ORANGE);
         
-        own = new Scord(5,5);
+        own = new Scord(15,5);
     }
     
     public void paintComponent(Graphics gp){
