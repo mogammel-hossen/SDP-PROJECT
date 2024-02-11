@@ -10,7 +10,12 @@ public class Practise {
        frame.setSize(width, hight);
        frame.setLocationRelativeTo(null);
        frame.setResizable(false);
+<<<<<<< HEAD
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
+=======
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
+>>>>>>> a9478edcf56d2bb477b947d08a870593c1b4b181
        SnakeGame game = new SnakeGame(width,hight);
        frame.add(game);
     }   
