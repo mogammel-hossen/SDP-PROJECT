@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 2cccb3413c07b9449ca53aeb2afd9dc714c08d94
 
 package com.mycompany.practise;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
-import java.util.*;
-public class SnakeGame extends JPanel{
+import java.util.Random;
+public class SnakeGame extends JPanel implements ActionListener{
+
     private class Tile{
         int a;
         int b;
@@ -23,6 +22,13 @@ public class SnakeGame extends JPanel{
     int tilesize = 25;
     Tile food;
     Tile head;
+    Random random;
+    
+    // it's for game logic
+    Timer gameloop;
+    
+    int valocityX;
+    int valocityY;
     
     SnakeGame(int hight,int width){
         this.hight = hight;
@@ -34,9 +40,17 @@ public class SnakeGame extends JPanel{
         
         head = new Tile(5,5);
 
-	food = new Tile(10,10);
-    }
-    
+	    food = new Tile(5,5);
+        
+        random = new Random();
+        Food();
+        
+        valocityX = 1;
+        valocityY = 0;
+        
+        gameloop = new Timer(1000,this);
+        gameloop.start();
+    }    
     public void paintComponent(Graphics gp){
         super.paintComponent(gp);
         draw(gp);
@@ -54,51 +68,20 @@ public class SnakeGame extends JPanel{
         gp.setColor(Color.red);
         gp.fillRect(head.a * tilesize, head.b * tilesize, tilesize, tilesize);
     }
-}
-=======
-
-package com.mycompany.practise;
-import java.awt.*;
-import javax.swing.*;
-public class SnakeGame extends JPanel{
-
-    private class Scord{
-        int a;
-        int b;
-        
-        // scord means each house
-        Scord(int a,int b){
-            this.a = a;
-            this.b = b;
-        }
-    }
-    int hight;
-    int width;
-    int scordsize = 25;
-    Scord food;
-    Scord own;
     
-    SnakeGame(int hight,int width){
-        this.hight = hight;
-        this.width = width;
-        
-        
-        setPreferredSize(new Dimension(this.width,this.hight));
-        setBackground(Color.ORANGE);
-        
-        own = new Scord(5,5);
-
-	food = new Scord(10,10);
+    public void Food(){
+        // here the food position wil be a random number
+        food.a = random.nextInt(width/tilesize);
+        food.b = random.nextInt(hight/tilesize);
     }
     
-    public void paintComponent(Graphics gp){
-        super.paintComponent(gp);
-        draw(gp);
+    public void move(){
+        head.a += valocityX;
+        head.b += valocityY;
     }
-    
-    public void draw(Graphics gp){
-        gp.setColor(Color.red);
-        gp.fillRect(own.a, own.b, scordsize, scordsize);
+    @Override
+    public void actionPerformed(ActionEvent e) {
+         repaint();
+         move();
     }
 }
->>>>>>> 65b567f73dc56d60f59d55588f41063d19351926
