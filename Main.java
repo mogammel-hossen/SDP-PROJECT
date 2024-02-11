@@ -10,7 +10,6 @@ public class Practise {
        frame.setSize(width, hight);
        frame.setLocationRelativeTo(null);
        frame.setResizable(false);
-       frame.setBackground(Color.BLACK);
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
        SnakeGame game = new SnakeGame(width,hight);
