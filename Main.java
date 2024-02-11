@@ -4,12 +4,13 @@ import javax.swing.*;
 public class Practise {
     
     public static void main(String[] args) {
-        int hight = 400, width = 400;
+        int hight = 400;
+        int width=hight;
        JFrame frame = new JFrame("snake");
        frame.setVisible(true);
        frame.setSize(width, hight);
        frame.setLocationRelativeTo(null);
-       frame.setResizable(false);
+       frame.setResizable(alse);
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
        SnakeGame game = new SnakeGame(width,hight);
