@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Game {
     
     public static void main(String[] args) {
-        int hight = 400, width = 400;
+        int hight = 500, width = 500;
        JFrame frame = new JFrame("snake");
        frame.setVisible(true);
        frame.setSize(width, hight);
