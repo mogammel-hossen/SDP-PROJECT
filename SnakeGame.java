@@ -1,11 +1,11 @@
 
-package com.mycompany.practise;
+package com.mycompany.main;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
-public class SnakeGame extends JPanel implements ActionListener{
+public class SnakeGame extends JPanel implements ActionListener, KeyListener{
 
     private class Tile{
         int a;
@@ -37,10 +37,12 @@ public class SnakeGame extends JPanel implements ActionListener{
         
         setPreferredSize(new Dimension(this.width,this.hight));
         setBackground(Color.ORANGE);
+        addKeyListener(this);
+        setFocusable(true);
+        
         
         head = new Tile(5,5);
-
-	    food = new Tile(5,5);
+	food = new Tile(5,5);
         
         random = new Random();
         Food();
@@ -50,7 +52,12 @@ public class SnakeGame extends JPanel implements ActionListener{
         
         gameloop = new Timer(1000,this);
         gameloop.start();
-    }    
+    }
+    
+    public boolean collision(Tile taile1, Tile taile2){
+        return taile1.a == taile2.a && taile1.b == taile2.b;
+    }
+    
     public void paintComponent(Graphics gp){
         super.paintComponent(gp);
         draw(gp);
@@ -67,6 +74,8 @@ public class SnakeGame extends JPanel implements ActionListener{
         // it is for snake
         gp.setColor(Color.red);
         gp.fillRect(head.a * tilesize, head.b * tilesize, tilesize, tilesize);
+        
+
     }
     
     public void Food(){
@@ -76,6 +85,8 @@ public class SnakeGame extends JPanel implements ActionListener{
     }
     
     public void move(){
+
+        
         head.a += valocityX;
         head.b += valocityY;
     }
@@ -84,4 +95,42 @@ public class SnakeGame extends JPanel implements ActionListener{
          repaint();
          move();
     }
+    
+     @Override
+    public void keyPressed(KeyEvent e) {
+        //here snake move only up
+    if (e.getKeyCode()== KeyEvent.VK_UP && valocityY != 1 ){
+        valocityX = 0;
+        valocityY = -1;
+    }
+    
+         //here snake move only down
+    else if (e.getKeyCode()== KeyEvent.VK_DOWN && valocityY != -1){
+        valocityX = 0;
+        valocityY = 1;
+    }
+    
+          //here snake move only left
+     else if (e.getKeyCode()== KeyEvent.VK_LEFT && valocityX != 1){
+        valocityX = -1;
+        valocityY = 0;
+    }
+    
+          //here snake move only right   
+     else if (e.getKeyCode()== KeyEvent.VK_RIGHT && valocityX != -1){
+        valocityX = 1;
+        valocityY = 0;
+    }
+    
+    }
+    
+     @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+    
 }

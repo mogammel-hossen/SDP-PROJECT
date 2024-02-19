@@ -13,6 +13,7 @@ public class Game {
        
        SnakeGame game = new SnakeGame(width,hight);
        frame.add(game);
+       game .requestFocus();
     }   
 }
 
