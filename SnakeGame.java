@@ -29,6 +29,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     
     int valocityX;
     int valocityY;
+    boolean gameOver = false;
+
     
     SnakeGame(int hight,int width){
         this.hight = hight;
@@ -74,6 +76,16 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         // it is for snake
         gp.setColor(Color.red);
         gp.fillRect(head.a * tilesize, head.b * tilesize, tilesize, tilesize);
+
+         //show scoring and game over 
+        gp.setFont(new Font("Arial", Font.PLAIN,16));
+        if(gameOver){
+            gp.setColor(Color.black);
+            gp.drawString("GameOver:" +  String.valueOf(snakeBody.size()), tilesize - 16, tilesize);
+        }
+        else{
+            gp.drawString("Score:" +  String.valueOf(snakeBody.size()), tilesize - 16, tilesize);
+        }
         
 
     }
