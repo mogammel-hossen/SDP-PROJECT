@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Random;
+import java.util.ArrayList;
 public class SnakeGame extends JPanel implements ActionListener, KeyListener{
 
     private class Tile{
@@ -23,6 +24,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     Tile food;
     Tile head;
     Random random;
+    ArrayList <Tile> snakeBody;
     
     // it's for game logic
     Timer gameloop;
@@ -44,7 +46,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         
         
         head = new Tile(5,5);
-	food = new Tile(5,5);
+        snakeBody = new ArrayList<Tile>();
+	    food = new Tile(5,5);
         
         random = new Random();
         Food();
@@ -87,7 +90,11 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
             gp.drawString("Score:" +  String.valueOf(snakeBody.size()), tilesize - 16, tilesize);
         }
         
-
+         // snake body
+         for(int i=0; i<snakeBody.size();i++){
+            Tile snakePart = snakeBody.get(i);
+            gp.fillRect(snakePart.a*tilesize, snakePart.b*tilesize, tilesize, tilesize);
+        }
     }
     
     public void Food(){
@@ -98,6 +105,24 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     
     public void move(){
 
+        // eat food
+        if (collision(head, food)){
+            snakeBody.add(new Tile(food.a, food.b));
+            Food();
+        } 
+        
+        for (int i = snakeBody.size()-1;i>=0;i--){
+        Tile snakePart = snakeBody.get(i);
+        if(i==0){
+            snakePart.a = head.a;
+            snakePart.b = head.b;
+        }
+        else{
+            Tile preSnakePart = snakeBody.get(i-1);
+            snakePart.a = preSnakePart.a;
+            snakePart.b = preSnakePart.b;
+        }
+        }
         
         head.a += valocityX;
         head.b += valocityY;
