@@ -69,10 +69,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     }
     
     public void draw(Graphics gp){
-        for(int i=0;i<width/tilesize;i++){
-            gp.drawLine(i*tilesize, 0, i*tilesize, hight);
-            gp.drawLine(0, i*tilesize,width, i*tilesize);
-        }
         // it is for food
         gp.setColor(Color.blue);
         gp.fillRect(food.a * tilesize, food.b * tilesize, tilesize, tilesize);
