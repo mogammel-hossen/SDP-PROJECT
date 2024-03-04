@@ -126,11 +126,25 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         
         head.a += valocityX;
         head.b += valocityY;
+
+        for(int i=0;i<snakeBody.size();i++){
+            Tile snakePart = snakeBody.get(i);
+            // collision
+            if(collision(head,snakePart)){
+                gameOver = true;
+            }
+            
+            if(head.a * tilesize<0 || head.a * tilesize>width ||
+               head.b * tilesize<0 || head.b * tilesize>hight){
+                gameOver = true;
+            }
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
          repaint();
          move();
+         JOptionPane.showMessageDialog(null, "GAME OVER", null, JOptionPane.PLAIN_MESSAGE);
     }
     
      @Override
