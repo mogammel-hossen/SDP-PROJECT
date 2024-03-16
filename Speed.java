@@ -1,4 +1,4 @@
-package com.mycompany.practise;
+package com.mycompany.practice;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

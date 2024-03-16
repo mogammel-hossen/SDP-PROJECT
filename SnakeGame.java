@@ -1,4 +1,4 @@
-package com.mycompany.practise;
+package com.mycompany.practice;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;

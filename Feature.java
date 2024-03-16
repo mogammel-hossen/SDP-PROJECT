@@ -1,4 +1,4 @@
-package com.mycompany.practise;
+package com.mycompany.practice;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.*;
@@ -34,12 +34,12 @@ public class Feature {
         frame.setSize(400,400);  
         frame.setLayout(null);frame.setVisible(true);
         
-        JButton bton2=new JButton("Spreed");
+        JButton bton2=new JButton("Speed");
         bton2.setBounds(100,150,150,30);        
         bton2.setBackground(Color.orange);
         bton2.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){ 
-              SpreedClass sp = new SpreedClass(width,hight);
+              Speed sp = new Speed(width,hight);
             }  
         }); frame.add(bton2);
             frame.setSize(400,400);  
