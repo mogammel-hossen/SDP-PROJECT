@@ -1,8 +1,8 @@
 package com.mycompany.java;
 public class Java {
-
     public static void main(String[] args) {
-        new GameFrame();
+        int hight = 600, width = 600;
+        Feature ft = new Feature(width,hight);
     }
 }
 
