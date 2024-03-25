@@ -36,6 +36,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         g.fill3DRect(food.a*tilesize, food.b*tilesize, tilesize, tilesize,true);        
         g.setColor(Color.blue);
         g.fill3DRect(head.a*tilesize, head.b*tilesize, tilesize, tilesize,true);        
+        draw2(g);       
+    }
+    public void draw2(Graphics g){
         for(int i=0;i<snakeBody.size();i++){
             g.setColor(new Color(40, 200, 150));
             Tile snakepart = snakeBody.get(i);
@@ -46,8 +49,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
             g.drawString("Game Over: "+String.valueOf(snakeBody.size()),tilesize-16,tilesize);            
         }else{
         g.drawString("Score: "+String.valueOf(snakeBody.size()),tilesize-16,tilesize);value = snakeBody.size();
-        }       
-    }    
+        }
+    }
     public void Food(){ // here the food position wil be a random number
         food.a = random.nextInt(width/tilesize); food.b = random.nextInt(hight/tilesize);
     }
@@ -61,6 +64,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         else{Tile preSnakePart = snakeBody.get(i-1);
             snakePart.a = preSnakePart.a; snakePart.b = preSnakePart.b;}
         }        
+        move2();
+    }
+    public void move2(){
         head.a += valocityX; head.b += valocityY;
         for(int i=0;i<snakeBody.size();i++){
             Tile snakepart = snakeBody.get(i);
@@ -69,7 +75,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         if(head.a*tilesize<0 || head.a*tilesize>width || head.b*tilesize<0 || head.b*tilesize>hight){
             gameOver = true;
         }
-    }@Override
+    }
+@Override
     public void actionPerformed(ActionEvent e) {
          repaint(); move();
          if(gameOver){ gameloop.stop();
