@@ -8,21 +8,16 @@ public class Feature {
     Feature(int hight,int width){  
         int y=100,add=50;     
         JFrame frame = new JFrame("Home page");
-        Frame(frame,hight,width);
-       
+        Frame(frame,hight,width);      
         JButton bton=new JButton("New_Game");  
-        button(y,bton,hight,width,frame);
-        
+        button(y,bton,hight,width,frame);        
         JButton bton2=new JButton("Speed");
-        control_speed(y+=add,bton2,hight,width,frame);
-        
+        control_speed(y+=add,bton2,hight,width,frame);        
         JButton bton7=new JButton("History");
-        saved_score(y+=add,bton7,hight,width,frame);
-            
+        saved_score(y+=add,bton7,hight,width,frame);           
             JButton bton6=new JButton("Exit");
             exit(y+=add,bton6,hight,width,frame);
     }   
-
     void button(int y,JButton bton,int hight,int width,JFrame frame){
         bton.setBounds(100,y,150,30); 
         bton.setBackground(Color.orange);
@@ -42,8 +37,7 @@ public class Feature {
         frame.add(bton);  
         frame.setSize(400,400);  
         frame.setLayout(null);frame.setVisible(true);
-    }
-    
+    }    
     void control_speed(int y,JButton bton2,int hight,int width,JFrame frame){
         bton2.setBounds(100,y,150,30);        
         bton2.setBackground(Color.orange);
@@ -53,10 +47,8 @@ public class Feature {
             }  
         }); frame.add(bton2);
             frame.setSize(400,400);  
-            frame.setLayout(null);
-            frame.setVisible(true);
-    }
-    
+            frame.setLayout(null);frame.setVisible(true);
+    }   
     void saved_score(int y,JButton bton7,int hight,int width,JFrame frame){
         bton7.setBounds(100,y,150,30);
             bton7.setBackground(Color.orange);
@@ -70,14 +62,12 @@ public class Feature {
             Desktop desktop = Desktop.getDesktop();  
             if(file.exists())         //checks file exists or not  
             desktop.open(file);              //opens the specified file  
-            }  
-            catch(Exception ee){ ee.printStackTrace(); }                     
+            }catch(Exception ee){ ee.printStackTrace(); }                     
             }  
         }); frame.add(bton7);
             frame.setSize(400,400);  
             frame.setLayout(null);frame.setVisible(true);
-    }
-    
+    }    
     void exit(int y,JButton bton6,int hight,int width,JFrame frame){
         bton6.setBounds(100,y,150,30);
             bton6.setBackground(Color.orange);
@@ -88,11 +78,9 @@ public class Feature {
         }); frame.add(bton6);
             frame.setSize(400,400);  
             frame.setLayout(null);frame.setVisible(true);
-    }
-    
+    }    
     void Frame(JFrame frame,int hight,int width){    
-       frame.setVisible(true);
-       frame.setSize(width, hight);
+       frame.setVisible(true);frame.setSize(width, hight);
        frame.setLocationRelativeTo(null);
        frame.setResizable(false);
        frame.getContentPane().setBackground(Color.green);
