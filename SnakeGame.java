@@ -86,17 +86,18 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
             writer.write("Game Score : "+value+"\n");writer.close();file.close();
         }catch(IOException ee){ ee.printStackTrace();}
         }
-    }@Override
-    public void keyPressed(KeyEvent e) { 
-    if (e.getKeyCode()== KeyEvent.VK_UP && valocityY != 1 ){ // up button to go UP
-        valocityX = 0; valocityY = -1;
-    }else if (e.getKeyCode()== KeyEvent.VK_DOWN && valocityY != -1){ // down button to go down
-        valocityX = 0; valocityY = 1;
-    }else if (e.getKeyCode()== KeyEvent.VK_LEFT && valocityX != 1){ // left button to go left
-        valocityX = -1; valocityY = 0;
-    }else if (e.getKeyCode()== KeyEvent.VK_RIGHT && valocityX !=-1){ // right button to go right
-        valocityX = 1; valocityY = 0;}
-    }@Override
-    public void keyTyped(KeyEvent e) {}@Override
-    public void keyReleased(KeyEvent e) {}    
-}
+    }switch (e.getKeyCode()) {
+        case KeyEvent.VK_UP:
+             valocityX = 0;valocityY = -1;
+                    break;
+        case KeyEvent.VK_DOWN:        
+             valocityX = 0;valocityY = 1;
+                    break;
+        case KeyEvent.VK_LEFT:
+             valocityX = -1;valocityY = 0;
+                    break;
+        case KeyEvent.VK_RIGHT:
+             valocityX = 1;valocityY = 0;
+                    break;
+            }
+    }
