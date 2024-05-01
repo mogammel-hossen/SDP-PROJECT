@@ -1,9 +1,10 @@
-package com.mycompany.practice;
+package feature;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
+import speed.Speed;
 public class Feature {
     Feature(int hight,int width){  
         int y=100,add=50;     

@@ -1,9 +1,10 @@
-package com.mycompany.practice;
+package speed;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import snakegame.SnakeGame;
 public class Speed{
     Speed(int hight, int width){
     JFrame frame = new JFrame("Speed");
